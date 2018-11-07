@@ -17,7 +17,7 @@
         - [Insert](#insert)
         - [Delete](#delete)
         - [Changing Case](#changing-case)
-                - [examples](#examples)
+                - [Examples](#examples)
         - [Replace Mode](#replace-mode)
         - [Undo Redo and Repeat](#undo-redo-and-repeat)
         - [Copy and Paste](#copy-and-paste)
@@ -240,7 +240,8 @@ c$ (also C) "changes to end of line
         </tr>
     </tbody>
 </table>
-##### examples
+
+##### Examples
 - Toggle case "HellO" to "hELLo" with g~ then a movement.
 - Uppercase "HellO" to "HELLO" with gU then a movement.
 - Lowercase "HellO" to "hello" with gu then a movement.
