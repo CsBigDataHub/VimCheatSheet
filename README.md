@@ -1,4 +1,36 @@
+ <hr>                                                                                                                                                                                                          
+<p align="center">
+    <img alt="vim" src="./Vimlogo.svg.png" height="300" width="500">
+</p>
+<hr>
+<hr>
+
 # Vim Cheatsheet
+
+* [Buffer Management](#buffer-management)
+* [File management](#file-management)
+* [Movement commands](#movement-commands)
+* [Scrolling](#scrolling)
+* [Insert](#insert)
+* [Delete](#delete)
+* [Change Text](#change-text)
+* [Changing Case](#changing-case)
+* [Replace Mode](#replace-mode)
+* [Undo Redo and Repeat](#undo-redo-and-repeat)
+* [Copy and Paste](#copy-and-paste)
+* [Searching](#searching)
+* [Indent Auto-indent and Word wrap](#indent-auto-indent-and-word-wrap)
+* [Filtering through shell commands](#filtering-through-shell-commands)
+* [Modes](#modes)
+* [Marks](#marks)
+* [Jump through history](#jump-through-history)
+* [Windows](#windows)
+* [Abbreviations](#abbreviations)
+* [Command](#command)
+* [Diff](#diff)
+* [Settings](#settings)
+
+
 ### Entering and leaving vi
 - vi file edits existing or new file
 - [Shift] + ZZ writes file and quits (or :wq[Return] )
@@ -6,8 +38,8 @@
 
 <style type="text/css">
 .tg  {border-collapse:collapse;border-spacing:0;}
-.tg td{font-family:Arial, sans-serif;font-size:14px;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:black;}
-.tg th{font-family:Arial, sans-serif;font-size:14px;font-weight:normal;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:black;}
+.tg td{font-family:Arial, sans-serif;font-size:14px;font-weight:bold;padding:10px 5px;border-style:solid;border-width:4px;overflow:hidden;word-break:normal;border-color:black;}
+.tg th{font-family:Arial, sans-serif;font-size:14px;font-weight:bold;padding:10px 5px;border-style:solid;border-width:4px;overflow:hidden;word-break:normal;border-color:black;}
 .tg .tg-0pky{border-color:inherit;text-align:left;vertical-align:top}
 </style>
 <table class="tg">
@@ -94,7 +126,7 @@ ctrl+b "page up
 • [Control] + f   #Scroll down one screen (“forward”)
 • [Control] + b   #Scroll up one screen (“back”)
 ```
-### insert
+### Insert
 
 - All of these commands enter insert mode
   
@@ -106,10 +138,11 @@ A "to insert at the end of the line
 o "to open a new line below the cursor
 O "to open a new line above the cursor 
 vi <filename> +<line number> " to start editor on a line - eg: vi test.txt +8 will open file test.txt on line 8
-ctrl+p "auto complete option
+Ctrl-n "to insert the next matching word
+Ctrl-p "to insert the previous matching word
 ```
 
-### delete
+### Delete
 
 - Can use dx, where x is any movement command
 - Can use a number before any deletion command
@@ -125,7 +158,7 @@ d$ or D "deletes to end of line
 d() "deletes current sentence 
 ```
 
- ### change text
+ ### Change Text
 ```vim
 r "changes the current character # r leaves in command mode
 s "changes the current character # s leaves in command mode
@@ -134,15 +167,87 @@ cw (also ce) "changes the current word and leaves you in insert mode
 c^ "changes to beginning of line
 c$ (also C) "changes to end of line
 ```
-
-### replace mode
+### Changing Case
+<table class="Change case">
+    <tbody>
+        <tr>
+            <th>Command </th>
+            <th> Description
+            </th>
+        </tr>
+        <tr>
+            <td> <code>~</code> </td>
+            <td> Toggle case of the character under the cursor, or all visually-selected characters.
+            </td>
+        </tr>
+        <tr>
+            <td> <code>3~</code> </td>
+            <td> Toggle case of the next three characters.
+            </td>
+        </tr>
+        <tr>
+            <td> <code>g~3w</code> </td>
+            <td> Toggle case of the next three words.
+            </td>
+        </tr>
+        <tr>
+            <td> <code>g~iw</code> </td>
+            <td> Toggle case of the current word (inner word – cursor anywhere in word).
+            </td>
+        </tr>
+        <tr>
+            <td> <code>g~$</code> </td>
+            <td> Toggle case of all characters to end of line.
+            </td>
+        </tr>
+        <tr>
+            <td> <code>g~~</code> </td>
+            <td> Toggle case of the current line (same as <code>V~</code>).
+            </td>
+        </tr>
+        <tr>
+            <td> <code>U</code> </td>
+            <td> Uppercase the visually-selected text.<br/>
+                  First press v or V then move to select text.<br/>
+                  If you don't select text, pressing <code>U</code> will undo all changes to the current line.
+            </td>
+        </tr>
+        <tr>
+            <td> <code>u</code> </td>
+            <td> Lowercase the visually-selected text.<br/>
+                If you don't select text, pressing <code>u</code> will undo the last change.
+            </td>
+        </tr>
+        <tr>
+            <td> <code>gUU</code> </td>
+            <td> Change the current line to uppercase (same as <code>VU</code>).
+            </td>
+        </tr>
+        <tr>
+            <td> <code>gUiw</code> </td>
+            <td> Change current word to uppercase.
+            </td>
+        </tr>
+        <tr>
+            <td> <code>guu</code> </td>
+            <td> Change the current line to lowercase (same as <code>Vu</code>).
+            </td>
+        </tr>
+    </tbody>
+</table>
+##### examples
+- Toggle case "HellO" to "hELLo" with g~ then a movement.
+- Uppercase "HellO" to "HELLO" with gU then a movement.
+- Lowercase "HellO" to "hello" with gu then a movement.
+ 
+### Replace Mode
 ```vim
 R "enters overwrite mode
 ~ "changes the case of the character at the cursor
 J "joins the next line to the current line
 ```
 
-### undo,redo and repeat
+### Undo Redo and Repeat
 ```vim
 u "undo last changes
 ctrl+r "redoes last change(undoes undo)
@@ -150,7 +255,7 @@ U "undoes all changes to current line
 . "(dot or period)repeats last change
 ```
 
-#copy and paste
+### Copy and Paste
 ```vim
 dd "delete(cut) line
 yy "yanks (copy) a line
@@ -161,7 +266,7 @@ P "or shift+p put the text before cursor
 1vp "pasting over text
 ```
 
-#Searching
+### Searching
 ```vim
 /text "Searches forward for text
 ?text "Searches backward for text
@@ -200,7 +305,7 @@ N "repeats previous Search in opposite direction
 :%s/[pattern]//gn "Count and highlight number of occurences in File
 ```
 
-### indent , auto-indent, word wrap
+### Indent Auto-indent and Word wrap
 ```vim
 >> "indent current line
 << "outdent current line
@@ -241,6 +346,110 @@ m<character>
 mx "set a mark called x 
 ```
 
+<table class="mark table">
+<tbody><tr>
+<th>Command </th><th> Description
+</th></tr>
+<tr>
+<td> <code>ma</code> </td><td> set mark <b>a</b> at current cursor location
+</td></tr>
+<tr>
+<td> <code>'a</code> </td><td> jump to line of mark <b>a</b> (first non-blank character in line)
+</td></tr>
+<tr>
+<td> <code>`a</code> </td><td> jump to position (line and column) of mark <b>a</b>
+</td></tr>
+<tr>
+<td> <code>d'a</code> </td><td> delete from current line to line of mark <b>a</b>
+</td></tr>
+<tr>
+<td> <code>d`a</code> </td><td> delete from current cursor position to position of mark <b>a</b>
+</td></tr>
+<tr>
+<td> <code>c'a</code> </td><td> change text from current line to line of mark <b>a</b>
+</td></tr>
+<tr>
+<td> <code>y`a</code> </td><td> yank text to unnamed buffer from cursor to position of mark <b>a</b>
+</td></tr>
+<tr>
+<td> <code>:marks</code> </td><td> list all the current marks
+</td></tr>
+<tr>
+<td> <code>:marks aB</code> </td><td> list marks <b>a</b>, <b>B</b>
+</td></tr></tbody></table>
+
+<table class="marktable2">
+<tbody><tr>
+<th>Command </th><th> Description
+</th></tr>
+<tr>
+<td> <code>]'</code> </td><td> jump to next line with a lowercase mark
+</td></tr>
+<tr>
+<td> <code>['</code> </td><td> jump to previous line with a lowercase mark
+</td></tr>
+<tr>
+<td> <code>]`</code> </td><td> jump to next lowercase mark
+</td></tr>
+<tr>
+<td> <code>[`</code> </td><td> jump to previous lowercase mark
+</td></tr></tbody></table>
+
+- Commands like d'a operate "linewise" and include the start and end lines.
+- Commands like d`a operate "characterwise" and include the start but not the end character.
+
+<table class="special marks">
+<tbody><tr>
+<th>Command </th><th> Description
+</th></tr>
+<tr>
+<td> <code>`.</code> </td><td> jump to position where last change occurred in current buffer
+</td></tr>
+<tr>
+<td> <code>`"</code> </td><td> jump to position where last exited current buffer
+</td></tr>
+<tr>
+<td> <code>`0</code> </td><td> jump to position in last file edited (when exited Vim)
+</td></tr>
+<tr>
+<td> <code>`1</code> </td><td> like <code>`0</code> but the previous file (also <code>`2</code> etc)
+</td></tr>
+<tr>
+<td> <code>''</code> </td><td> jump back (to line in current buffer where jumped from)
+</td></tr>
+<tr>
+<td> <code>``</code> </td><td> jump back (to position in current buffer where jumped from)
+</td></tr>
+<tr>
+<td> <code>`[</code> or <code>`]</code> </td><td> jump to beginning/end of previously changed or yanked text
+</td></tr>
+
+<tr>
+<td> <code>`&lt;</code> or <code>`&gt;</code> </td><td> jump to beginning/end of last visual selection
+</td></tr>
+</tbody></table>
+
+####Deleting marks
+<table class="marksdelete">
+<tbody><tr>
+<th>Command </th><th> Description
+</th></tr>
+<tr>
+<td> <code>:delmarks a</code> </td><td> delete mark <b>a</b>
+</td></tr>
+<tr>
+<td> <code>:delmarks a-d</code> </td><td> delete marks <b>a</b>, <b>b</b>, <b>c</b>, <b>d</b>
+</td></tr>
+<tr>
+<td> <code>:delmarks abxy</code> </td><td> delete marks <b>a</b>, <b>b</b>, <b>x</b>, <b>y</b>
+</td></tr>
+<tr>
+<td> <code>:delmarks aA</code> </td><td> delete marks <b>a</b>, <b>A</b>
+</td></tr>
+<tr>
+<td> <code>:delmarks!</code> </td><td> delete all lowercase marks for the current buffer (a-z)
+</td></tr></tbody></table>
+
 ### Jump through history
 ```vim
 ctrl+o "to jump backwords
@@ -257,7 +466,7 @@ ctrl+ww " will move to windows in split
 ctrl+wc " to close the window
 ```
 
-### abbreviations
+### Abbreviations
 ```vim
 :abb <abbreviation> <what does it stand for>
 :abb _imp import "in this instance _imp will populate import
@@ -288,6 +497,9 @@ dp "diff putt
 :syntax on 
 :set list "to see line-endings.
 :set nolist "to go back to normal.
+:set splitright
+:set splitbelow
+
 
 " Search & display
 set ignorecase
@@ -311,4 +523,5 @@ set noerrorbells
 
 " Vertical diff
 set diffopt=filler,vertical
+
 ```
