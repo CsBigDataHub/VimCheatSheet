@@ -1,6 +1,6 @@
  <hr/>          
 <p align="center">
-    <img alt="vim" src="./Vimlogo.svg.png" height="300" width="500">
+    <img alt="vim" src="./Vimlogo.png" height="300" width="500">
 </p>
 <hr/>
 <hr/>
