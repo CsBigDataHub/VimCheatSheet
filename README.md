@@ -39,16 +39,8 @@
 - vi file edits existing or new file
 - [Shift] + ZZ writes file and quits (or :wq[Return] )
 - :q![Return] quits without saving changes (or [Shift] + ZQ)
-<style>
-table, th, td, tr {
-    border: 1px solid black;
-    border-collapse: collapse;
-}
-th, td {
-    padding: 15px;
-}
-</style>
-<table style="width:100%">
+
+<table>
     <tbody>
             <tr>
             <td> <b> Verbs </td>
