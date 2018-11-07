@@ -1,35 +1,39 @@
- <hr>                                                                                                                                                                                                          
+ <hr/>          
 <p align="center">
     <img alt="vim" src="./Vimlogo.svg.png" height="300" width="500">
 </p>
-<hr>
-<hr>
+<hr/>
+<hr/>
 
 # Vim Cheatsheet
+<hr/>
 
-* [Buffer Management](#buffer-management)
-* [File management](#file-management)
-* [Movement commands](#movement-commands)
-* [Scrolling](#scrolling)
-* [Insert](#insert)
-* [Delete](#delete)
-* [Change Text](#change-text)
-* [Changing Case](#changing-case)
-* [Replace Mode](#replace-mode)
-* [Undo Redo and Repeat](#undo-redo-and-repeat)
-* [Copy and Paste](#copy-and-paste)
-* [Searching](#searching)
-* [Indent Auto-indent and Word wrap](#indent-auto-indent-and-word-wrap)
-* [Filtering through shell commands](#filtering-through-shell-commands)
-* [Modes](#modes)
-* [Marks](#marks)
-* [Jump through history](#jump-through-history)
-* [Windows](#windows)
-* [Abbreviations](#abbreviations)
-* [Command](#command)
-* [Diff](#diff)
-* [Settings](#settings)
-
+- [Vim Cheatsheet](#vim-cheatsheet)
+        - [Entering and leaving vi](#entering-and-leaving-vi)
+        - [Buffer Management](#buffer-management)
+        - [File management](#file-management)
+        - [Movement commands](#movement-commands)
+        - [Scrolling](#scrolling)
+        - [Insert](#insert)
+        - [Delete](#delete)
+        - [Changing Case](#changing-case)
+                - [examples](#examples)
+        - [Replace Mode](#replace-mode)
+        - [Undo Redo and Repeat](#undo-redo-and-repeat)
+        - [Copy and Paste](#copy-and-paste)
+        - [Searching](#searching)
+            - [wild card or meta character while searching](#wild-card-or-meta-character-while-searching)
+            - [Search and replace](#search-and-replace)
+        - [Indent Auto-indent and Word wrap](#indent-auto-indent-and-word-wrap)
+        - [Filtering through shell commands](#filtering-through-shell-commands)
+        - [Modes](#modes)
+        - [Marks](#marks)
+        - [Jump through history](#jump-through-history)
+        - [Windows](#windows)
+        - [Abbreviations](#abbreviations)
+        - [Command](#command)
+        - [Diff](#diff)
+        - [Settings](#settings)
 
 ### Entering and leaving vi
 - vi file edits existing or new file
@@ -336,6 +340,10 @@ v "visual mode from normal mode
 [ctrl]+v "visual block mode
 c "change mode
 ```
+
+<p align="center">
+    <img alt="vimmodes" src="./modes.jpg" height="300" width="500">
+</p>
 
 ### Marks
 - marks are like bookmarks in your file
