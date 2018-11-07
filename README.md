@@ -39,27 +39,36 @@
 - vi file edits existing or new file
 - [Shift] + ZZ writes file and quits (or :wq[Return] )
 - :q![Return] quits without saving changes (or [Shift] + ZQ)
-
-<style type="text/css">
-.tg  {border-collapse:collapse;border-spacing:0;}
-.tg td{font-family:Arial, sans-serif;font-size:14px;font-weight:bold;padding:10px 5px;border-style:solid;border-width:4px;overflow:hidden;word-break:normal;border-color:black;}
-.tg th{font-family:Arial, sans-serif;font-size:14px;font-weight:bold;padding:10px 5px;border-style:solid;border-width:4px;overflow:hidden;word-break:normal;border-color:black;}
-.tg .tg-0pky{border-color:inherit;text-align:left;vertical-align:top}
+<style>
+table, th, td, tr {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+th, td {
+    padding: 15px;
+}
 </style>
-<table class="tg">
-  <tr>
-    <th class="tg-0pky">Verbs</th>
-    <th class="tg-0pky">d - delete <br>c - change <br>y - yank (copy) <br>v - visually select</th>
-  </tr>
-  <tr>
-    <td class="tg-0pky">Modifiers</td>
-    <td class="tg-0pky">i - inside<br>a - around<br>NUM - number (1,2,10)<br>t - searches for something and stops before it<br>f - searches for that thing and lands on it</td>
-  </tr>
-  <tr>
-    <td class="tg-0pky">Nouns</td>
-    <td class="tg-0pky">w - word<br>s - sentence<br>p - paragraph<br>t - tag (think HTML/XML)<br>b - block (think programming)</td>
-  </tr>
+<table style="width:100%">
+    <tbody>
+            <tr>
+            <td> <b> Verbs </td>
+            <td> <b>d - delete <br>c - change <br>y - yank (copy) <br>v - visually select
+            </td>
+            </tr>
+            <tr>
+            <td> <b> Modifiers </td>
+            <td> <b>i - inside<br>a - around<br>NUM - number (1,2,10)<br>t - searches for something and stops before it<br>f - searches for that thing and lands on it
+            </td>
+            </tr>
+            <tr>
+            <td> <b> Nouns </td>
+            <td> <b>w - word<br>s - sentence<br>p - paragraph<br>t - tag (think HTML/XML)<br>b - block (think programming)
+            </td>
+            </tr>
+            <tr>
+    </tbody>
 </table>
+
 
 ### Buffer Management
 ```vim
