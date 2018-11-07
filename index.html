@@ -1,0 +1,616 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Vimcheatsheet by ckoneru</title>
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/github-dark.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script src="javascripts/respond.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <!--[if lt IE 8]>
+    <link rel="stylesheet" href="stylesheets/ie.css">
+    <![endif]-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+  </head>
+  <body>
+      <div id="header">
+        <nav>
+          <li class="fork"><a href="https://github.optum.com/ckoneru/VimCheatSheet">View On GitHub</a></li>
+        </nav>
+      </div><!-- end header -->
+
+    <div class="wrapper">
+
+      <section>
+        <div id="title">
+          <h1>Vimcheatsheet</h1>
+          <p>Vim cheatsheet</p>
+          <hr>
+          <span class="credits left">Project maintained by <a href="https://github.optum.com/ckoneru">ckoneru</a></span>
+          <span class="credits right">Hosted on GitHub Pages &mdash; Theme by <a href="https://twitter.com/michigangraham">mattgraham</a></span>
+        </div>
+
+         <hr>          
+<p align="center">
+    <img alt="vim" src="./Vimlogo.svg.png" height="300" width="500">
+</p>
+<hr>
+<hr>
+<h1>
+<a id="vim-cheatsheet" class="anchor" href="#vim-cheatsheet" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Vim Cheatsheet</h1>
+<hr>
+<ul>
+<li>
+<a href="#vim-cheatsheet">Vim Cheatsheet</a>
+- <a href="#entering-and-leaving-vi">Entering and leaving vi</a>
+- <a href="#buffer-management">Buffer Management</a>
+- <a href="#file-management">File management</a>
+- <a href="#movement-commands">Movement commands</a>
+- <a href="#scrolling">Scrolling</a>
+- <a href="#insert">Insert</a>
+- <a href="#delete">Delete</a>
+- <a href="#changing-case">Changing Case</a>
+- <a href="#examples">examples</a>
+- <a href="#replace-mode">Replace Mode</a>
+- <a href="#undo-redo-and-repeat">Undo Redo and Repeat</a>
+- <a href="#copy-and-paste">Copy and Paste</a>
+- <a href="#searching">Searching</a>
+- <a href="#wild-card-or-meta-character-while-searching">wild card or meta character while searching</a>
+- <a href="#search-and-replace">Search and replace</a>
+- <a href="#indent-auto-indent-and-word-wrap">Indent Auto-indent and Word wrap</a>
+- <a href="#filtering-through-shell-commands">Filtering through shell commands</a>
+- <a href="#modes">Modes</a>
+- <a href="#marks">Marks</a>
+- <a href="#jump-through-history">Jump through history</a>
+- <a href="#windows">Windows</a>
+- <a href="#abbreviations">Abbreviations</a>
+- <a href="#command">Command</a>
+- <a href="#diff">Diff</a>
+- <a href="#settings">Settings</a>
+</li>
+</ul>
+<h3>
+<a id="entering-and-leaving-vi" class="anchor" href="#entering-and-leaving-vi" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Entering and leaving vi</h3>
+<ul>
+<li>vi file edits existing or new file</li>
+<li>[Shift] + ZZ writes file and quits (or :wq[Return] )</li>
+<li>:q![Return] quits without saving changes (or [Shift] + ZQ)</li>
+</ul>
+<table>
+    <tbody>
+            <tr>
+            <td> <b> Verbs </b>
+</td>
+            <td> <b>d - delete <br>c - change <br>y - yank (copy) <br>v - visually select
+            </b>
+</td>
+            </tr>
+            <tr>
+            <td> <b> Modifiers </b>
+</td>
+            <td> <b>i - inside<br>a - around<br>NUM - number (1,2,10)<br>t - searches for something and stops before it<br>f - searches for that thing and lands on it
+            </b>
+</td>
+            </tr>
+            <tr>
+            <td> <b> Nouns </b>
+</td>
+            <td> <b>w - word<br>s - sentence<br>p - paragraph<br>t - tag (think HTML/XML)<br>b - block (think programming)
+            </b>
+</td>
+            </tr>
+            <tr>
+    </tr>
+</tbody>
+</table>
+<h3>
+<a id="buffer-management" class="anchor" href="#buffer-management" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Buffer Management</h3>
+<div class="highlight highlight-source-viml"><pre>:<span class="pl-c1">buffers</span><span class="pl-c"> <span class="pl-c">"</span>list open buffers</span>
+:<span class="pl-c1">ls</span><span class="pl-c"> <span class="pl-c">"</span>list open buffers</span>
+:<span class="pl-c1">list</span> <span class="pl-c1">buffers</span><span class="pl-c"> <span class="pl-c">"</span>list open buffers</span>
+:<span class="pl-c1">b</span> [TAB]<span class="pl-c"> <span class="pl-c">"</span>to cycle through buffers</span>
+:<span class="pl-c1">bp</span><span class="pl-c"> <span class="pl-c">"</span>previous buffer</span>
+:<span class="pl-c1">bn</span><span class="pl-c"> <span class="pl-c">"</span>next buffer</span>
+:<span class="pl-c1">bd</span><span class="pl-c"> <span class="pl-c">"</span>to delete contents in current buffer</span>
+:<span class="pl-c1">b</span><span class="pl-c1">&lt;number&gt;</span><span class="pl-c"> <span class="pl-c">"</span>number of buffer from ls</span></pre></div>
+<h3>
+<a id="file-management" class="anchor" href="#file-management" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>File management</h3>
+<ul>
+<li>need to be in normal mode</li>
+</ul>
+<div class="highlight highlight-source-viml"><pre>:<span class="pl-c1">w</span><span class="pl-c"> <span class="pl-c">"</span>Write without quitting </span>
+:<span class="pl-c1">q</span><span class="pl-c"> <span class="pl-c">"</span>Quit without writing</span>
+:<span class="pl-c1">q</span><span class="pl-k">!</span><span class="pl-c"> <span class="pl-c">"</span>Abandon changes </span>
+:<span class="pl-c1">vi</span><span class="pl-c"> <span class="pl-c">"</span>Edit another file</span>
+:<span class="pl-c1">e</span><span class="pl-c"> <span class="pl-c">"</span>Edit another file</span>
+:<span class="pl-c1">n</span><span class="pl-c"> <span class="pl-c">"</span>Go to next file </span>
+:<span class="pl-c1">N</span><span class="pl-c"> <span class="pl-c">"</span>Go to previous file</span>
+:<span class="pl-c1">rew</span><span class="pl-c"> <span class="pl-c">"</span>Rewind to first file</span>
+:<span class="pl-c1">r</span><span class="pl-c"> <span class="pl-c">"</span>Read file into this one</span>
+:<span class="pl-c1">-1</span>r <span class="pl-c1">&lt;file name&gt;</span><span class="pl-c"> <span class="pl-c">"</span>Read file to line before</span>
+:<span class="pl-c1">e</span><span class="pl-c"> <span class="pl-c">"</span>to open a file</span>
+:<span class="pl-c1">e</span> .<span class="pl-c"> <span class="pl-c">"</span> ls of the current directory</span>
+:<span class="pl-c1">e</span><span class="pl-k">!</span><span class="pl-c"> <span class="pl-c">"</span> back to last saved</span></pre></div>
+<h3>
+<a id="movement-commands" class="anchor" href="#movement-commands" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Movement commands</h3>
+<ul>
+<li>need to be in normal/command mode</li>
+</ul>
+<div class="highlight highlight-source-viml"><pre><span class="pl-c1">w</span><span class="pl-c"> <span class="pl-c">"</span>forward a word</span>
+<span class="pl-c1">3</span>w<span class="pl-c"> <span class="pl-c">"</span>to move forward 3 words, you use numeric prefix in almost all vi commands</span>
+<span class="pl-c1">b</span><span class="pl-c"> <span class="pl-c">"</span>back a word</span>
+<span class="pl-c1">e</span><span class="pl-c"> <span class="pl-c">"</span>forward to end of the current or next word</span>
+)<span class="pl-c"> <span class="pl-c">"</span>forward a sentance</span>
+(<span class="pl-c"> <span class="pl-c">"</span>backward a sentance</span>
+}<span class="pl-c"> <span class="pl-c">"</span>forward a paragraph</span>
+{<span class="pl-c"> <span class="pl-c">"</span>backward a paragraph</span>
+^<span class="pl-c"> <span class="pl-c">"</span>move the cursor to the beginning of a line</span>
+<span class="pl-c1">0</span>(zero)<span class="pl-c"> <span class="pl-c">"</span>will move to beginning of the line</span>
+<span class="pl-smi">$</span><span class="pl-c"> <span class="pl-c">"</span>move the cursor to the end of the line</span>
+:<span class="pl-smi">$</span><span class="pl-c"> <span class="pl-c">"</span>end of the file</span>
+GA<span class="pl-c"> <span class="pl-c">"</span>end of thr file</span>
+<span class="pl-c1">3</span>j6w<span class="pl-c"> <span class="pl-c">"</span>this will move 3 lines down and 6 words to left</span>
+<span class="pl-k">-</span> (minus)<span class="pl-c"> <span class="pl-c">"</span>goes to the beginning of the previous line</span>
+<span class="pl-c1">1</span>G <span class="pl-c1">or</span> <span class="pl-en">gg</span>(lower <span class="pl-c1">case</span>)<span class="pl-c"> <span class="pl-c">"</span>i.e 1+shift+g # first line of the file</span>
+G<span class="pl-c"> <span class="pl-c">"</span>i.e shift+g # last line of the file</span>
+<span class="pl-k">%</span><span class="pl-c"> <span class="pl-c">"</span> % All lines (same as 1,$)</span>
+ctrl<span class="pl-k">+</span><span class="pl-c1">f</span><span class="pl-c"> <span class="pl-c">"</span> page down</span>
+ctrl<span class="pl-k">+</span><span class="pl-c1">b</span><span class="pl-c"> <span class="pl-c">"</span>page up</span>
+'.<span class="pl-c"> <span class="pl-c">"</span>(single quote period i.e dot) to go to last change</span></pre></div>
+<h3>
+<a id="scrolling" class="anchor" href="#scrolling" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Scrolling</h3>
+<div class="highlight highlight-source-shell"><pre>• [Control] + e   <span class="pl-c"><span class="pl-c">#</span>Scroll down one line (“expose”)</span>
+• [Control] + y   <span class="pl-c"><span class="pl-c">#</span>Scroll up one line</span>
+• [Control] + d   <span class="pl-c"><span class="pl-c">#</span>Scroll down half a screen</span>
+• [Control] + u   <span class="pl-c"><span class="pl-c">#</span>Scroll up half a screen</span>
+• [Control] + f   <span class="pl-c"><span class="pl-c">#</span>Scroll down one screen (“forward”)</span>
+• [Control] + b   <span class="pl-c"><span class="pl-c">#</span>Scroll up one screen (“back”)</span></pre></div>
+<h3>
+<a id="insert" class="anchor" href="#insert" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Insert</h3>
+<ul>
+<li>All of these commands enter insert mode</li>
+</ul>
+<div class="highlight highlight-source-viml"><pre><span class="pl-c1">i</span><span class="pl-c"> <span class="pl-c">"</span>to insert text at the cursor</span>
+<span class="pl-c1">a</span><span class="pl-c"> <span class="pl-c">"</span>to append text </span>
+I<span class="pl-c"> <span class="pl-c">"</span>to insert at the beginning of the line</span>
+A<span class="pl-c"> <span class="pl-c">"</span>to insert at the end of the line</span>
+<span class="pl-c1">o</span><span class="pl-c"> <span class="pl-c">"</span>to open a new line below the cursor</span>
+O<span class="pl-c"> <span class="pl-c">"</span>to open a new line above the cursor </span>
+<span class="pl-c1">vi</span> <span class="pl-c1">&lt;filename&gt;</span> <span class="pl-k">+</span><span class="pl-c1">&lt;line number&gt;</span><span class="pl-c"> <span class="pl-c">"</span> to start editor on a line - eg: vi test.txt +8 will open file test.txt on line 8</span>
+Ctrl<span class="pl-k">-</span><span class="pl-c1">n</span><span class="pl-c"> <span class="pl-c">"</span>to insert the next matching word</span>
+Ctrl<span class="pl-k">-</span><span class="pl-c1">p</span><span class="pl-c"> <span class="pl-c">"</span>to insert the previous matching word</span></pre></div>
+<h3>
+<a id="delete" class="anchor" href="#delete" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Delete</h3>
+<ul>
+<li>Can use dx, where x is any movement command</li>
+<li>Can use a number before any deletion command</li>
+</ul>
+<div class="highlight highlight-source-viml"><pre><span class="pl-c1">x</span><span class="pl-c"> <span class="pl-c">"</span>deletes the current character at the cursor</span>
+dd<span class="pl-c"> <span class="pl-c">"</span>deletes current line</span>
+d2w<span class="pl-c"> <span class="pl-c">"</span>delete two words</span>
+dw<span class="pl-c"> <span class="pl-c">"</span>deletes current word, also deletes white space after the word</span>
+de<span class="pl-c"> <span class="pl-c">"</span>deletes the current word to end of the word with out deleting the white space after the word</span>
+<span class="pl-c1">d</span>^<span class="pl-c"> <span class="pl-c">"</span>deletes to beginning of line</span>
+<span class="pl-c1">d</span><span class="pl-smi">$</span> <span class="pl-c1">or</span> D<span class="pl-c"> <span class="pl-c">"</span>deletes to end of line</span>
+<span class="pl-en">d</span>()<span class="pl-c"> <span class="pl-c">"</span>deletes current sentence </span></pre></div>
+<h3>
+<a id="change-text" class="anchor" href="#change-text" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Change Text</h3>
+<div class="highlight highlight-source-viml"><pre><span class="pl-c1">r</span><span class="pl-c"> <span class="pl-c">"</span>changes the current character # r leaves in command mode</span>
+<span class="pl-c1">s</span><span class="pl-c"> <span class="pl-c">"</span>changes the current character # s leaves in command mode</span>
+<span class="pl-c1">cc</span><span class="pl-c"> <span class="pl-c">"</span>changes the current line, deletes the contents in current line and leaves you in insert mode</span>
+<span class="pl-c1">cw</span> (also <span class="pl-c1">ce</span>)<span class="pl-c"> <span class="pl-c">"</span>changes the current word and leaves you in insert mode</span>
+<span class="pl-c1">c</span>^<span class="pl-c"> <span class="pl-c">"</span>changes to beginning of line</span>
+<span class="pl-c1">c</span><span class="pl-smi">$</span> (also C)<span class="pl-c"> <span class="pl-c">"</span>changes to end of line</span></pre></div>
+<h3>
+<a id="changing-case" class="anchor" href="#changing-case" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Changing Case</h3>
+<table>
+    <tbody>
+        <tr>
+            <th>Command </th>
+            <th> Description
+            </th>
+        </tr>
+        <tr>
+            <td> <code>~</code> </td>
+            <td> Toggle case of the character under the cursor, or all visually-selected characters.
+            </td>
+        </tr>
+        <tr>
+            <td> <code>3~</code> </td>
+            <td> Toggle case of the next three characters.
+            </td>
+        </tr>
+        <tr>
+            <td> <code>g~3w</code> </td>
+            <td> Toggle case of the next three words.
+            </td>
+        </tr>
+        <tr>
+            <td> <code>g~iw</code> </td>
+            <td> Toggle case of the current word (inner word – cursor anywhere in word).
+            </td>
+        </tr>
+        <tr>
+            <td> <code>g~$</code> </td>
+            <td> Toggle case of all characters to end of line.
+            </td>
+        </tr>
+        <tr>
+            <td> <code>g~~</code> </td>
+            <td> Toggle case of the current line (same as <code>V~</code>).
+            </td>
+        </tr>
+        <tr>
+            <td> <code>U</code> </td>
+            <td> Uppercase the visually-selected text.<br>
+                  First press v or V then move to select text.<br>
+                  If you don't select text, pressing <code>U</code> will undo all changes to the current line.
+            </td>
+        </tr>
+        <tr>
+            <td> <code>u</code> </td>
+            <td> Lowercase the visually-selected text.<br>
+                If you don't select text, pressing <code>u</code> will undo the last change.
+            </td>
+        </tr>
+        <tr>
+            <td> <code>gUU</code> </td>
+            <td> Change the current line to uppercase (same as <code>VU</code>).
+            </td>
+        </tr>
+        <tr>
+            <td> <code>gUiw</code> </td>
+            <td> Change current word to uppercase.
+            </td>
+        </tr>
+        <tr>
+            <td> <code>guu</code> </td>
+            <td> Change the current line to lowercase (same as <code>Vu</code>).
+            </td>
+        </tr>
+    </tbody>
+</table>
+##### examples
+- Toggle case "HellO" to "hELLo" with g~ then a movement.
+- Uppercase "HellO" to "HELLO" with gU then a movement.
+- Lowercase "HellO" to "hello" with gu then a movement.
+<h3>
+<a id="replace-mode" class="anchor" href="#replace-mode" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Replace Mode</h3>
+<div class="highlight highlight-source-viml"><pre>R<span class="pl-c"> <span class="pl-c">"</span>enters overwrite mode</span>
+~<span class="pl-c"> <span class="pl-c">"</span>changes the case of the character at the cursor</span>
+J<span class="pl-c"> <span class="pl-c">"</span>joins the next line to the current line</span></pre></div>
+<h3>
+<a id="undo-redo-and-repeat" class="anchor" href="#undo-redo-and-repeat" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Undo Redo and Repeat</h3>
+<div class="highlight highlight-source-viml"><pre><span class="pl-c1">u</span><span class="pl-c"> <span class="pl-c">"</span>undo last changes</span>
+ctrl<span class="pl-k">+</span><span class="pl-c1">r</span><span class="pl-c"> <span class="pl-c">"</span>redoes last change(undoes undo)</span>
+U<span class="pl-c"> <span class="pl-c">"</span>undoes all changes to current line</span>
+.<span class="pl-c"> <span class="pl-c">"</span>(dot or period)repeats last change</span></pre></div>
+<h3>
+<a id="copy-and-paste" class="anchor" href="#copy-and-paste" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Copy and Paste</h3>
+<div class="highlight highlight-source-viml"><pre>dd<span class="pl-c"> <span class="pl-c">"</span>delete(cut) line</span>
+yy<span class="pl-c"> <span class="pl-c">"</span>yanks (copy) a line</span>
+yw<span class="pl-c"> <span class="pl-c">"</span>yanks a word</span>
+<span class="pl-en">y</span>(<span class="pl-c"> <span class="pl-c">"</span>yanks a sentance</span>
+<span class="pl-c1">p</span><span class="pl-c"> <span class="pl-c">"</span> put the text after cursor</span>
+<span class="pl-c1">P</span><span class="pl-c"> <span class="pl-c">"</span>or shift+p put the text before cursor</span>
+<span class="pl-c1">1</span>vp<span class="pl-c"> <span class="pl-c">"</span>pasting over text</span></pre></div>
+<h3>
+<a id="searching" class="anchor" href="#searching" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Searching</h3>
+<div class="highlight highlight-source-viml"><pre>/text<span class="pl-c"> <span class="pl-c">"</span>Searches forward for text</span>
+?text<span class="pl-c"> <span class="pl-c">"</span>Searches backward for text</span>
+<span class="pl-c1">n</span><span class="pl-c"> <span class="pl-c">"</span>repeats previous Search</span>
+<span class="pl-c1">N</span><span class="pl-c"> <span class="pl-c">"</span>repeats previous Search in opposite direction</span></pre></div>
+<h4>
+<a id="wild-card-or-meta-character-while-searching" class="anchor" href="#wild-card-or-meta-character-while-searching" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>wild card or meta character while searching</h4>
+<div class="highlight highlight-source-viml"><pre>.<span class="pl-c"> <span class="pl-c">"</span>is a wild card # example '/a.c' matches 'abc' or 'axc'</span>
+<span class="pl-cce">\ </span><span class="pl-c"><span class="pl-c">"</span>removes special meaning # '/a\.c' matches 'a.c' or '/a\\c' matches 'a\c' or '/a\/c' matches 'a/c'</span>
+^ , <span class="pl-smi">$</span><span class="pl-c"> <span class="pl-c">"</span>match line start and end # '/^abc' matches lines beginning with 'abcd' or '/abc$' matches lines ending with 'abcd'</span>
+/<span class="pl-c1">a</span>[xyz]<span class="pl-c1">c</span><span class="pl-c"> <span class="pl-c">"</span>matches 'axc' but does not match 'axyzc' #matches any single character in set</span>
+/<span class="pl-c1">a</span>[<span class="pl-c1">a</span><span class="pl-k">-</span>z]<span class="pl-c1">c</span><span class="pl-c"> <span class="pl-c">"</span>matches 'abc'</span>
+/<span class="pl-c1">a</span>[A<span class="pl-k">-</span>Z]<span class="pl-c1">c</span><span class="pl-c"> <span class="pl-c">"</span>matches 'aBc'</span>
+/<span class="pl-c1">a</span>[^<span class="pl-c1">a</span><span class="pl-k">-</span>z]<span class="pl-c1">c</span><span class="pl-c"> <span class="pl-c">"</span> does not match 'abc'</span>
+<span class="pl-k">*</span><span class="pl-c"> <span class="pl-c">"</span>is a repeat operator</span>
+/<span class="pl-c1">ab</span><span class="pl-k">*</span><span class="pl-c1">c</span><span class="pl-c">  <span class="pl-c">"</span>matches 'abc' or 'abbc' or 'abbbbc' or 'ac'</span>
+/<span class="pl-cce">\(</span><span class="pl-c1">ab</span><span class="pl-cce">\)</span><span class="pl-k">*</span><span class="pl-c1">c</span><span class="pl-c"> <span class="pl-c">"</span>matches 'abababababc'</span></pre></div>
+<h4>
+<a id="search-and-replace" class="anchor" href="#search-and-replace" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Search and replace</h4>
+<div class="highlight highlight-source-viml"><pre><span class="pl-k">*</span><span class="pl-c"> <span class="pl-c">"</span>* on a word will give you next occurence of the word</span>
+?<span class="pl-c1">&lt;word&gt;</span><span class="pl-c"> <span class="pl-c">"</span>to search backwords</span>
+/<span class="pl-cce">\c</span>{word}<span class="pl-c"> <span class="pl-c">"</span>search with out case sensitivity</span>
+:<span class="pl-c1">set</span> <span class="pl-c1">ic</span><span class="pl-c"> <span class="pl-c">"</span>is shorthand for ignorecase</span>
+:<span class="pl-c1">set</span> <span class="pl-c1">noic</span><span class="pl-c"> <span class="pl-c">"</span>is shorthand for ignorecase</span>
+:<span class="pl-c1">set</span> <span class="pl-c1">ignorecase</span>
+:<span class="pl-c1">s</span><span class="pl-sr">/old/</span><span class="pl-c1">new</span>/
+:<span class="pl-c1">s</span><span class="pl-sr">/old/</span><span class="pl-c1">new</span>/<span class="pl-c1">g</span><span class="pl-c"> <span class="pl-c">"</span>replace on current line</span>
+:<span class="pl-k">%</span><span class="pl-c1">s</span><span class="pl-sr">/old/</span><span class="pl-c1">new</span>/<span class="pl-c"> <span class="pl-c">"</span>replace on every line first occurrence</span>
+:<span class="pl-k">%</span><span class="pl-c1">s</span><span class="pl-sr">/old/</span><span class="pl-c1">new</span>/<span class="pl-c1">g</span><span class="pl-c"> <span class="pl-c">"</span>global replace</span>
+:<span class="pl-k">%</span><span class="pl-c1">s</span><span class="pl-sr">/the[ym]/</span>(<span class="pl-smi">&amp;</span>)/<span class="pl-c1">g</span><span class="pl-c"> <span class="pl-c">"</span>this replaces every occurrence of they or them with (they) or (them)</span>
+:<span class="pl-k">%</span><span class="pl-c1">s</span><span class="pl-sr">/\(they\) \(were\)/</span><span class="pl-cce">\2</span> <span class="pl-cce">\1</span>/<span class="pl-c1">g</span><span class="pl-c"> <span class="pl-c">"</span>replaces every occurrence of they [space] were with were [space] they</span>
+:<span class="pl-k">%</span><span class="pl-c1">s</span><span class="pl-sr">/[pattern]/</span>/gn<span class="pl-c"> <span class="pl-c">"</span>Count and highlight number of occurences in File</span></pre></div>
+<h3>
+<a id="indent-auto-indent-and-word-wrap" class="anchor" href="#indent-auto-indent-and-word-wrap" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Indent Auto-indent and Word wrap</h3>
+<div class="highlight highlight-source-viml"><pre>&gt;&gt;<span class="pl-c"> <span class="pl-c">"</span>indent current line</span>
+&lt;&lt;<span class="pl-c"> <span class="pl-c">"</span>outdent current line</span>
+:<span class="pl-c1">se</span> <span class="pl-c1">ai</span><span class="pl-c"> <span class="pl-c">"</span>enables auto-indent</span>
+:<span class="pl-c1">se</span> <span class="pl-c1">noai</span><span class="pl-c"> <span class="pl-c">"</span>disables auto-indent</span>
+:<span class="pl-c1">se</span> <span class="pl-c1">wm</span><span class="pl-k">=</span><span class="pl-c1">8</span><span class="pl-c"> <span class="pl-c">"</span>enables wrap margin, 8 is the length of the line which can be changed</span>
+:<span class="pl-c1">se</span> <span class="pl-c1">wm</span><span class="pl-k">=</span><span class="pl-c1">0</span><span class="pl-c"> <span class="pl-c">"</span>disables wrap margin</span></pre></div>
+<h3>
+<a id="filtering-through-shell-commands" class="anchor" href="#filtering-through-shell-commands" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Filtering through shell commands</h3>
+<div class="highlight highlight-source-viml"><pre><span class="pl-k">!</span><span class="pl-k">!</span><span class="pl-c"> <span class="pl-c">"</span>filters current line through shell command</span>
+<span class="pl-c1">n</span><span class="pl-k">!!</span><span class="pl-c"> <span class="pl-c">"</span>filters n lines</span>
+<span class="pl-k">!</span><span class="pl-k">%</span><span class="pl-c"> <span class="pl-c">"</span>filters to matching parentheses</span>
+<span class="pl-k">!</span>}<span class="pl-c"> <span class="pl-c">"</span>filters next paragraph </span>
+<span class="pl-k">!</span>{<span class="pl-c"> <span class="pl-c">"</span>filters previous paragraph</span></pre></div>
+<ul>
+<li>Useful commands include fmt, tr, grep, sed, and awk</li>
+<li>example, changing line from lower case to upper case
+<div class="highlight highlight-source-viml"><pre><span class="pl-k">!</span><span class="pl-k">!</span><span class="pl-c1">tr</span> <span class="pl-c1">a</span><span class="pl-k">-</span>z A<span class="pl-k">-</span>Z</pre></div>
+</li>
+</ul>
+<h3>
+<a id="modes" class="anchor" href="#modes" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Modes</h3>
+<div class="highlight highlight-source-viml"><pre><span class="pl-c1">v</span><span class="pl-c"> <span class="pl-c">"</span>visual mode from normal mode</span>
+[shift]<span class="pl-k">+</span><span class="pl-c1">v</span><span class="pl-c"> <span class="pl-c">"</span>visual line mode</span>
+[ctrl]<span class="pl-k">+</span><span class="pl-c1">v</span><span class="pl-c"> <span class="pl-c">"</span>visual block mode</span>
+<span class="pl-c1">c</span><span class="pl-c"> <span class="pl-c">"</span>change mode</span></pre></div>
+<p align="center">
+    <img alt="vimmodes" src="./modes.jpg" height="300" width="500">
+</p>
+<h3>
+<a id="marks" class="anchor" href="#marks" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Marks</h3>
+<ul>
+<li>marks are like bookmarks in your file</li>
+<li>You can use all the lower and upper case letter as marks. Lowercase marks are local to the current buffer, while uppercase marks are across</li>
+</ul>
+<div class="highlight highlight-source-viml"><pre><span class="pl-c1">m</span><span class="pl-c1">&lt;character&gt;</span>
+mx<span class="pl-c"> <span class="pl-c">"</span>set a mark called x </span></pre></div>
+<table>
+<tbody>
+<tr>
+<th>Command </th>
+<th> Description
+</th>
+</tr>
+<tr>
+<td> <code>ma</code> </td>
+<td> set mark <b>a</b> at current cursor location
+</td>
+</tr>
+<tr>
+<td> <code>'a</code> </td>
+<td> jump to line of mark <b>a</b> (first non-blank character in line)
+</td>
+</tr>
+<tr>
+<td> <code>`a</code> </td>
+<td> jump to position (line and column) of mark <b>a</b>
+</td>
+</tr>
+<tr>
+<td> <code>d'a</code> </td>
+<td> delete from current line to line of mark <b>a</b>
+</td>
+</tr>
+<tr>
+<td> <code>d`a</code> </td>
+<td> delete from current cursor position to position of mark <b>a</b>
+</td>
+</tr>
+<tr>
+<td> <code>c'a</code> </td>
+<td> change text from current line to line of mark <b>a</b>
+</td>
+</tr>
+<tr>
+<td> <code>y`a</code> </td>
+<td> yank text to unnamed buffer from cursor to position of mark <b>a</b>
+</td>
+</tr>
+<tr>
+<td> <code>:marks</code> </td>
+<td> list all the current marks
+</td>
+</tr>
+<tr>
+<td> <code>:marks aB</code> </td>
+<td> list marks <b>a</b>, <b>B</b>
+</td>
+</tr>
+</tbody>
+</table>
+<table>
+<tbody>
+<tr>
+<th>Command </th>
+<th> Description
+</th>
+</tr>
+<tr>
+<td> <code>]'</code> </td>
+<td> jump to next line with a lowercase mark
+</td>
+</tr>
+<tr>
+<td> <code>['</code> </td>
+<td> jump to previous line with a lowercase mark
+</td>
+</tr>
+<tr>
+<td> <code>]`</code> </td>
+<td> jump to next lowercase mark
+</td>
+</tr>
+<tr>
+<td> <code>[`</code> </td>
+<td> jump to previous lowercase mark
+</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>Commands like d'a operate "linewise" and include the start and end lines.</li>
+<li>Commands like d`a operate "characterwise" and include the start but not the end character.</li>
+</ul>
+<table>
+<tbody>
+<tr>
+<th>Command </th>
+<th> Description
+</th>
+</tr>
+<tr>
+<td> <code>`.</code> </td>
+<td> jump to position where last change occurred in current buffer
+</td>
+</tr>
+<tr>
+<td> <code>`"</code> </td>
+<td> jump to position where last exited current buffer
+</td>
+</tr>
+<tr>
+<td> <code>`0</code> </td>
+<td> jump to position in last file edited (when exited Vim)
+</td>
+</tr>
+<tr>
+<td> <code>`1</code> </td>
+<td> like <code>`0</code> but the previous file (also <code>`2</code> etc)
+</td>
+</tr>
+<tr>
+<td> <code>''</code> </td>
+<td> jump back (to line in current buffer where jumped from)
+</td>
+</tr>
+<tr>
+<td> <code>``</code> </td>
+<td> jump back (to position in current buffer where jumped from)
+</td>
+</tr>
+<tr>
+<td> <code>`[</code> or <code>`]</code> </td>
+<td> jump to beginning/end of previously changed or yanked text
+</td>
+</tr>
+<tr>
+<td> <code>`&lt;</code> or <code>`&gt;</code> </td>
+<td> jump to beginning/end of last visual selection
+</td>
+</tr>
+</tbody>
+</table>
+<p>####Deleting marks</p>
+<table>
+<tbody>
+<tr>
+<th>Command </th>
+<th> Description
+</th>
+</tr>
+<tr>
+<td> <code>:delmarks a</code> </td>
+<td> delete mark <b>a</b>
+</td>
+</tr>
+<tr>
+<td> <code>:delmarks a-d</code> </td>
+<td> delete marks <b>a</b>, <b>b</b>, <b>c</b>, <b>d</b>
+</td>
+</tr>
+<tr>
+<td> <code>:delmarks abxy</code> </td>
+<td> delete marks <b>a</b>, <b>b</b>, <b>x</b>, <b>y</b>
+</td>
+</tr>
+<tr>
+<td> <code>:delmarks aA</code> </td>
+<td> delete marks <b>a</b>, <b>A</b>
+</td>
+</tr>
+<tr>
+<td> <code>:delmarks!</code> </td>
+<td> delete all lowercase marks for the current buffer (a-z)
+</td>
+</tr>
+</tbody>
+</table>
+<h3>
+<a id="jump-through-history" class="anchor" href="#jump-through-history" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Jump through history</h3>
+<div class="highlight highlight-source-viml"><pre>ctrl<span class="pl-k">+</span><span class="pl-c1">o</span><span class="pl-c"> <span class="pl-c">"</span>to jump backwords</span>
+ctrl<span class="pl-k">+</span><span class="pl-c1">i</span><span class="pl-c"> <span class="pl-c">"</span>to move forward</span>
+<span class="pl-c1">t</span><span class="pl-s"><span class="pl-pds">"</span> <span class="pl-pds">"</span></span><span class="pl-c"><span class="pl-c">"</span>jump to right before the next quotes</span>
+<span class="pl-c1">f</span><span class="pl-s"><span class="pl-pds">"</span> <span class="pl-pds">"</span></span><span class="pl-c"><span class="pl-c">"</span>jump and land on the next quotes</span>
+:<span class="pl-c1">jumps</span><span class="pl-c"> <span class="pl-c">"</span>to get jump list</span></pre></div>
+<h3>
+<a id="windows" class="anchor" href="#windows" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Windows</h3>
+<div class="highlight highlight-source-viml"><pre>:<span class="pl-c1">split</span><span class="pl-c"> <span class="pl-c">"</span> to split the window</span>
+ctrl<span class="pl-k">+</span><span class="pl-c1">ww</span><span class="pl-c"> <span class="pl-c">"</span> will move to windows in split</span>
+ctrl<span class="pl-k">+</span><span class="pl-c1">wc</span><span class="pl-c"> <span class="pl-c">"</span> to close the window</span></pre></div>
+<h3>
+<a id="abbreviations" class="anchor" href="#abbreviations" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Abbreviations</h3>
+<div class="highlight highlight-source-viml"><pre>:abb <span class="pl-c1">&lt;abbreviation&gt;</span> <span class="pl-c1">&lt;what does it stand for&gt;</span>
+:abb _imp import<span class="pl-c"> <span class="pl-c">"</span>in this instance _imp will populate import</span></pre></div>
+<h3>
+<a id="command" class="anchor" href="#command" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Command</h3>
+<div class="highlight highlight-source-viml"><pre>:<span class="pl-c1">com</span><span class="pl-k">!</span> Py ! <span class="pl-c1">python</span> <span class="pl-k">%</span><span class="pl-c">  <span class="pl-c">"</span>Py is the name of the command and then exclamation mark to run an external command python, which is a command to run and give it the parameter percent.</span></pre></div>
+<h3>
+<a id="diff" class="anchor" href="#diff" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Diff</h3>
+<div class="highlight highlight-source-viml"><pre><span class="pl-c1">vim</span> <span class="pl-k">-</span><span class="pl-c1">d</span> <span class="pl-c1">&lt;file&gt;</span> <span class="pl-c1">&lt;file&gt;</span> 
+<span class="pl-c"><span class="pl-c">"</span>while in diff</span>
+<span class="pl-k">do</span><span class="pl-c"> <span class="pl-c">"</span>diff obtain</span>
+<span class="pl-c1">dp</span><span class="pl-c"> <span class="pl-c">"</span>diff putt</span>
+:<span class="pl-c1">diffsplit</span> <span class="pl-c1">&lt;filename&gt;</span><span class="pl-c">  <span class="pl-c">"</span>diff from one buffer to another in horizontal</span>
+:<span class="pl-c1">vert</span> <span class="pl-c1">diffsplit</span> <span class="pl-c1">&lt;filename&gt;</span> </pre></div>
+<h3>
+<a id="settings" class="anchor" href="#settings" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Settings</h3>
+<div class="highlight highlight-source-viml"><pre>:<span class="pl-c1">set</span> <span class="pl-c1">ic</span><span class="pl-c"> <span class="pl-c">"</span>set case insensitive</span>
+:<span class="pl-c1">set</span> <span class="pl-c1">hls</span><span class="pl-c"> <span class="pl-c">"</span>set highlight search</span>
+:<span class="pl-c1">noh</span><span class="pl-c"> <span class="pl-c">"</span>turn off highlight</span>
+:<span class="pl-c1">set</span> <span class="pl-c1">incsearch</span>
+:<span class="pl-c1">set</span> <span class="pl-c1">dip</span><span class="pl-c"> <span class="pl-c">"</span>get diff option</span>
+:<span class="pl-c1">set</span> <span class="pl-c1">dip</span><span class="pl-k">+=</span><span class="pl-c1">vertical</span><span class="pl-c"> <span class="pl-c">"</span>set diff vertical</span>
+:<span class="pl-c1">set</span> <span class="pl-c1">clipboard</span><span class="pl-k">=</span>unnamedplus<span class="pl-c"> <span class="pl-c">"</span>Vim uses its own clipboard. To integrate with the system clipboard, use set clipboard equal unnamedplus, and now, you can copy from other programs and paste in Vim, and the other way around.</span>
+:<span class="pl-c1">syntax</span> <span class="pl-c1">on</span> 
+:<span class="pl-c1">set</span> <span class="pl-c1">list</span><span class="pl-c"> <span class="pl-c">"</span>to see line-endings.</span>
+:<span class="pl-c1">set</span> <span class="pl-c1">nolist</span><span class="pl-c"> <span class="pl-c">"</span>to go back to normal.</span>
+:<span class="pl-c1">set</span> <span class="pl-c1">splitright</span>
+:<span class="pl-c1">set</span> <span class="pl-c1">splitbelow</span>
+
+
+<span class="pl-c"><span class="pl-c">"</span> Search &amp; display</span>
+<span class="pl-c1">set</span> <span class="pl-c1">ignorecase</span>
+<span class="pl-c1">set</span> <span class="pl-c1">incsearch</span>
+<span class="pl-c1">set</span> <span class="pl-c1">nohls</span>
+<span class="pl-c1">set</span> <span class="pl-c1">number</span>
+<span class="pl-c1">set</span> <span class="pl-c1">showmatch</span>
+<span class="pl-c1">set</span> <span class="pl-c1">smartcase</span>
+
+<span class="pl-c"><span class="pl-c">"</span> Enable<span class="pl-s"> vim: <span class="pl-k">...</span> directives</span></span>
+<span class="pl-c1">set</span> <span class="pl-c1">modeline</span>
+
+<span class="pl-c"><span class="pl-c">"</span> Tab stuff</span>
+<span class="pl-c1">set</span> <span class="pl-c1">tabstop</span><span class="pl-k">=</span><span class="pl-c1">8</span>
+<span class="pl-c1">set</span> <span class="pl-c1">softtabstop</span><span class="pl-k">=</span><span class="pl-c1">4</span>
+<span class="pl-c1">set</span> <span class="pl-c1">shiftwidth</span><span class="pl-k">=</span><span class="pl-c1">4</span>
+
+<span class="pl-c"><span class="pl-c">"</span> Make no noise</span>
+<span class="pl-c1">set</span> <span class="pl-c1">visualbell</span> <span class="pl-c1">t_vb</span><span class="pl-k">=</span>
+<span class="pl-c1">set</span> <span class="pl-c1">noerrorbells</span>
+
+<span class="pl-c"><span class="pl-c">"</span> Vertical diff</span>
+<span class="pl-c1">set</span> <span class="pl-c1">diffopt</span><span class="pl-k">=</span>filler,<span class="pl-c1">vertical</span>
+</pre></div>
+      </section>
+
+    </div>
+    <!--[if !IE]><script>fixScale(document);</script><![endif]-->
+    
+  </body>
+</html>
