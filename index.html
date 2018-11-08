@@ -1,73 +1,70 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
   <head>
-    <meta charset="utf-8">
+    <meta charset='utf-8'>
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <title>Vimcheatsheet by ckoneru</title>
-    <link rel="stylesheet" href="stylesheets/styles.css">
-    <link rel="stylesheet" href="stylesheets/github-dark.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-    <script src="javascripts/respond.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link href='https://fonts.googleapis.com/css?family=Architects+Daughter' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print">
+
     <!--[if lt IE 9]>
-      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
-    <!--[if lt IE 8]>
-    <link rel="stylesheet" href="stylesheets/ie.css">
-    <![endif]-->
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 
+    <title>Vimcheatsheet by ckoneru</title>
   </head>
+
   <body>
-      <div id="header">
-        <nav>
-          <li class="fork"><a href="https://github.optum.com/ckoneru/VimCheatSheet">View On GitHub</a></li>
-        </nav>
-      </div><!-- end header -->
+    <header>
+      <div class="inner">
+        <h1>Vimcheatsheet</h1>
+        <h2>Vim cheatsheet</h2>
+        <a href="https://github.optum.com/ckoneru/VimCheatSheet" class="button"><small>View project on</small> GitHub</a>
+      </div>
+    </header>
 
-    <div class="wrapper">
-
-      <section>
-        <div id="title">
-          <h1>Vimcheatsheet</h1>
-          <p>by Chetan Koneru</p>
-          <hr>
-          <span class="credits left">Project maintained by <a href="https://github.optum.com/ckoneru">ckoneru</a></span>
-        </div>
-
-         <hr>          
+    <div id="content-wrapper">
+      <div class="inner clearfix">
+        <section id="main-content">
+           <hr>          
 <p align="center">
-    <img alt="Vimlogo" src="images/Vimlogo.png" height="300" width="500">
+    <img alt="vim" src="./Vimlogo.png" height="300" width="500">
 </p>
 <hr>
 <hr>
+<h1>
+<a id="vim-cheatsheet" class="anchor" href="#vim-cheatsheet" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Vim Cheatsheet</h1>
+<hr>
 <ul>
 <li>
-<a href="#vim-cheatsheet">Vim Cheatsheet</a><br/>
-- <a href="#entering-and-leaving-vi">Entering and leaving vi</a><br/>
-- <a href="#buffer-management">Buffer Management</a><br/>
-- <a href="#file-management">File management</a><br/>
-- <a href="#movement-commands">Movement commands</a><br/>
-- <a href="#scrolling">Scrolling</a><br/>
-- <a href="#insert">Insert</a><br/>
-- <a href="#delete">Delete</a><br/>
-- <a href="#changing-case">Changing Case</a><br/>
-- <a href="#examples">Examples</a><br/>
-- <a href="#replace-mode">Replace Mode</a><br/>
-- <a href="#undo-redo-and-repeat">Undo Redo and Repeat</a><br/>
-- <a href="#copy-and-paste">Copy and Paste</a><br/>
-- <a href="#searching">Searching</a><br/>
-- <a href="#wild-card-or-meta-character-while-searching">wild card or meta character while searching</a><br/>
-- <a href="#search-and-replace">Search and replace</a><br/>
-- <a href="#indent-auto-indent-and-word-wrap">Indent Auto-indent and Word wrap</a><br/>
-- <a href="#filtering-through-shell-commands">Filtering through shell commands</a><br/>
-- <a href="#modes">Modes</a><br/>
-- <a href="#marks">Marks</a><br/>
-- <a href="#jump-through-history">Jump through history</a><br/>
-- <a href="#windows">Windows</a><br/>
-- <a href="#abbreviations">Abbreviations</a><br/>
-- <a href="#command">Command</a><br/>
-- <a href="#diff">Diff</a><br/>
-- <a href="#settings">Settings</a><br/>
+<a href="#vim-cheatsheet">Vim Cheatsheet</a>
+- <a href="#entering-and-leaving-vi">Entering and leaving vi</a>
+- <a href="#buffer-management">Buffer Management</a>
+- <a href="#file-management">File management</a>
+- <a href="#movement-commands">Movement commands</a>
+- <a href="#scrolling">Scrolling</a>
+- <a href="#insert">Insert</a>
+- <a href="#delete">Delete</a>
+- <a href="#changing-case">Changing Case</a>
+- <a href="#examples">Examples</a>
+- <a href="#replace-mode">Replace Mode</a>
+- <a href="#undo-redo-and-repeat">Undo Redo and Repeat</a>
+- <a href="#copy-and-paste">Copy and Paste</a>
+- <a href="#searching">Searching</a>
+- <a href="#wild-card-or-meta-character-while-searching">wild card or meta character while searching</a>
+- <a href="#search-and-replace">Search and replace</a>
+- <a href="#indent-auto-indent-and-word-wrap">Indent Auto-indent and Word wrap</a>
+- <a href="#filtering-through-shell-commands">Filtering through shell commands</a>
+- <a href="#modes">Modes</a>
+- <a href="#marks">Marks</a>
+- <a href="#jump-through-history">Jump through history</a>
+- <a href="#windows">Windows</a>
+- <a href="#abbreviations">Abbreviations</a>
+- <a href="#command">Command</a>
+- <a href="#diff">Diff</a>
+- <a href="#settings">Settings</a>
 </li>
 </ul>
 <h3>
@@ -359,7 +356,7 @@ yw<span class="pl-c"> <span class="pl-c">"</span>yanks a word</span>
 [ctrl]<span class="pl-k">+</span><span class="pl-c1">v</span><span class="pl-c"> <span class="pl-c">"</span>visual block mode</span>
 <span class="pl-c1">c</span><span class="pl-c"> <span class="pl-c">"</span>change mode</span></pre></div>
 <p align="center">
-    <img alt="modes" src="images/modes.jpg" height="300" width="500">
+    <img alt="vimmodes" src="./modes.jpg" height="300" width="500">
 </p>
 <h3>
 <a id="marks" class="anchor" href="#marks" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Marks</h3>
@@ -606,10 +603,17 @@ ctrl<span class="pl-k">+</span><span class="pl-c1">wc</span><span class="pl-c"> 
 <span class="pl-c"><span class="pl-c">"</span> Vertical diff</span>
 <span class="pl-c1">set</span> <span class="pl-c1">diffopt</span><span class="pl-k">=</span>filler,<span class="pl-c1">vertical</span>
 </pre></div>
-      </section>
+        </section>
 
+        <aside id="sidebar">
+
+          <p class="repo-owner"><a href="https://github.optum.com/ckoneru/VimCheatSheet"></a> is maintained by <a href="https://github.optum.com/ckoneru">ckoneru</a>.</p>
+
+          <p>This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the Architect theme by <a href="https://twitter.com/jasonlong">Jason Long</a>.</p>
+        </aside>
+      </div>
     </div>
-    <!--[if !IE]><script>fixScale(document);</script><![endif]-->
-    
+
+  
   </body>
 </html>
